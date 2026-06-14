@@ -20,8 +20,7 @@
 8. [Workflow & Decision States](#8-workflow--decision-states)
 9. [Cost Breakdown](#9-cost-breakdown)
 10. [Key Design Decisions](#10-key-design-decisions)
-11. [CV Talking Points](#11-cv-talking-points)
-12. [Glossary](#12-glossary)
+11. [Glossary](#11-glossary)
 
 ---
 
@@ -490,30 +489,9 @@ A simple append-only log can be backdated by a malicious insider. A SHA-256 hash
 
 Different tools for different roles. Gemini Flash is optimised for fast structured extraction (explanation + citation) — ideal for the Explainer. Groq's inference speed on Llama 70B makes it excellent for the more complex Judge reasoning. Using two different providers also demonstrates provider-agnostic LLM integration, which is itself a valuable architectural skill.
 
----
 
-## 11. CV Talking Points
 
-When discussing this project in interviews:
-
-**On the architecture:**
-> "I built a hybrid ML + LLM compliance risk system following a real Deloitte SRS. The ML layer — XGBoost with SHAP — handles fast, auditable risk scoring. Two LLM components handle explanation and advisory reasoning. The key architectural constraint I respected is that LLM outputs are advisory only — human reviewers always make the final call, which is a hard regulatory requirement."
-
-**On MCP:**
-> "I implemented the MCP layer as the controlled data access bus between the LLMs and all data sources. No LLM queries a database directly — every tool call is authenticated, input-sanitized, output-filtered, and audit-logged before the LLM sees the result. This prevents prompt injection, PII leakage, and unscoped data access — which are the three biggest failure modes in naive LLM-plus-database systems."
-
-**On cost:**
-> "The production architecture runs on AWS at roughly $2,400/month at mid-scale. For this POC I mapped every production component to a free-tier equivalent — Upstash for Kafka and Redis, Neon for PostgreSQL, Gemini Flash and Groq for the LLMs, Hugging Face Spaces for the dashboard. The only paid component is a $7/month Render instance to keep the API always-on for demos. That cost discipline is itself a design skill."
-
-**On the audit trail:**
-> "Every model inference, MCP tool call, and reviewer action is written to an immutable hash-chain audit log in Postgres. Any tampering with a past record breaks the chain. This matches what regulators expect from a production compliance system — complete traceability from transaction receipt to final disposition."
-
-**On the LLM hallucination check:**
-> "The LLM Explainer is explicitly instructed to cite only policy passages supplied in its prompt. I then run a post-response check that verifies every cited policy ID exists in what we actually sent. If the LLM fabricates a citation, the check fails and the explanation is flagged — it never reaches the reviewer. That's how you use LLMs safely in a regulated environment."
-
----
-
-## 12. Glossary
+## 11. Glossary
 
 | Term | Definition |
 |------|-----------|
@@ -545,5 +523,5 @@ When discussing this project in interviews:
 
 ---
 
-*Built by The Talent Grid · Portfolio / CV project based on Deloitte Financial Compliance Risk Program SRS v1.0*
+*Built by Alpha9934 · Portfolio / CV project based on Deloitte Financial Compliance Risk Program SRS v1.0*
 *Production architecture designed for enterprise deployment · POC runs at $7/month on free-tier cloud services*
