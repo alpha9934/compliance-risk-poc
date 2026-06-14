@@ -1,0 +1,12 @@
+{
+  "risk_ratings": {
+    "US": 1, "GB": 1, "DE": 1, "FR": 1, "JP": 1,
+    "SG": 2, "AU": 1, "CA": 1, "CH": 2, "NL": 1,
+    "AE": 3, "SA": 3, "QA": 3, "KW": 3, "BH": 3,
+    "RU": 5, "BY": 5, "IR": 5, "KP": 5, "SY": 5,
+    "MM": 4, "CU": 4, "VE": 4, "SD": 4, "LY": 4,
+    "CN": 2, "IN": 2, "BR": 2, "MX": 3, "ZA": 2
+  },
+  "fatf_greylist": ["AE", "MM", "YE", "TZ", "PK"],
+  "fatf_blacklist": ["IR", "KP"]
+}

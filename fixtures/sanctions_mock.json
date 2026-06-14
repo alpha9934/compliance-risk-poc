@@ -1,0 +1,30 @@
+{
+  "version": "2026-06-01",
+  "source": "MOCK - POC ONLY - not real sanctions data",
+  "entries": [
+    {
+      "entity_id": "ENTITY-MOCK-001",
+      "name": "Shell Corp Holdings Ltd",
+      "confidence": 0.97,
+      "source": "OFAC-SDN",
+      "reason": "Sanctions evasion - Iran",
+      "jurisdiction": "AE"
+    },
+    {
+      "entity_id": "ENTITY-MOCK-002",
+      "name": "Global Trade GmbH",
+      "confidence": 0.73,
+      "source": "EU-CONSOLIDATED",
+      "reason": "Proliferation financing",
+      "jurisdiction": "RU"
+    },
+    {
+      "entity_id": "ENTITY-MOCK-003",
+      "name": "Pacific Rim Trading Co",
+      "confidence": 0.51,
+      "source": "UN-CONSOLIDATED",
+      "reason": "Arms trafficking - possible match",
+      "jurisdiction": "KP"
+    }
+  ]
+}

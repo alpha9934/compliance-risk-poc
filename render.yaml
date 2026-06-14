@@ -1,0 +1,49 @@
+services:
+  - type: web
+    name: compliance-risk-api
+    env: python
+    plan: starter          # $7/month — always-on, no spin-down
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      - key: MODEL_PATH
+        value: models/xgboost_v1.json
+
+      # ── Upstash Redis (Streams Backbone) ──
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false        # Paste from your .env in Render UI
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false
+
+      # ── Neon PostgreSQL ──
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_URL_SYNC
+        sync: false
+
+      # ── LLM APIs ──
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+
+      # ── MCP Server ──
+      - key: MCP_SERVER_URL
+        sync: false        # Point this to your production MCP URL on Render
+
+      # ── Security ──
+      - key: SECRET_KEY
+        sync: false
+
+      # ── DagsHub (MLflow tracking) ──
+      - key: MLFLOW_TRACKING_URI
+        sync: false
+      - key: MLFLOW_TRACKING_USERNAME
+        sync: false
+      - key: MLFLOW_TRACKING_PASSWORD
+        sync: false

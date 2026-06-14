@@ -1,0 +1,30 @@
+# Risk score thresholds by product and jurisdiction
+# Scores above HIGH threshold → HIGH risk class
+# Scores above MEDIUM threshold → MEDIUM risk class
+# All others → LOW
+
+DEFAULT:
+  DEFAULT:
+    high: 0.75
+    medium: 0.45
+
+WIRE_TRANSFER:
+  DEFAULT:
+    high: 0.70
+    medium: 0.40
+  AE:                  # UAE — elevated due to jurisdiction risk
+    high: 0.60
+    medium: 0.35
+  RU:                  # Russia — sanctions-adjacent
+    high: 0.50
+    medium: 0.30
+
+ACH:
+  DEFAULT:
+    high: 0.80
+    medium: 0.50
+
+SWIFT:
+  DEFAULT:
+    high: 0.65
+    medium: 0.38

@@ -1,0 +1,20 @@
+[
+  {
+    "policy_id": "KYC-OB-01",
+    "title": "Customer Risk Rating",
+    "passage": "All customers are assigned a risk rating of 1 (Low) to 5 (High) during onboarding. Customers rated 4 or 5 require annual review and enhanced transaction monitoring with lower alert thresholds.",
+    "jurisdiction": "ALL",
+    "product": "ALL",
+    "version": "4.2",
+    "effective_date": "2023-01-01"
+  },
+  {
+    "policy_id": "KYC-CDD-03",
+    "title": "Beneficial Ownership Verification",
+    "passage": "For legal entities initiating transfers above $15,000, the institution must verify and document the identity of all beneficial owners holding 25% or more of the entity before processing the transaction.",
+    "jurisdiction": "ALL",
+    "product": "ALL",
+    "version": "2.5",
+    "effective_date": "2024-01-01"
+  }
+]
